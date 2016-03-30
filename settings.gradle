@@ -1,0 +1,3 @@
+rootProject.name = 'testmvc'
+include 'testmvc-war'
+

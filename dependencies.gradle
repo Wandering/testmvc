@@ -1,0 +1,4 @@
+allprojects {
+    springVersion = "4.1.0.RELEASE"
+    mysqlConnectorVersion= "5.1.26"
+}

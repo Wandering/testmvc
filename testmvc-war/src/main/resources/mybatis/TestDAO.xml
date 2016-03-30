@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.bwl.dao.ITestDAO">
+
+    <sql id="Base_Column_List">
+        ID as ID ,
+        USERNAME   as USERNAME ,
+        DISPLAY_NAME as DISPLAY_NAME ,
+        PASSWORD as PASSWORD ,
+        SEX as SEX,
+        BRITHDAY as BRITHDAY,
+        PHONE_NO as PHONE_NO,
+        ADDRESS as ADDRESS,
+        ORGANZATION_ID as ORGANZATION_ID
+    </sql>
+    <select id="queryList" parameterType="java.util.Map" resultType="TestDomain">
+        SELECT
+            <include refid="Base_Column_List" />
+        FROM user_info
+        <trim prefix="WHERE" prefixOverrides="AND | OR">
+            <if test="condition.ID!=null">
+                AND id = #{condition.ID}
+            </if>
+            <if test="condition.USERNAME!=null">
+                AND name = #{condition.USERNAME}
+            </if>
+        </trim>
+    </select>
+
+</mapper>
+

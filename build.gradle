@@ -1,0 +1,40 @@
+apply plugin: 'java'
+apply from: 'dependencies.gradle'
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
+
+
+allprojects {
+    group = 'cn.bwl.testmvc'
+    version = '0.0.1-SNAPSHOT'
+
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    //解决windowsGBK 不可映射字符
+    tasks.withType(Compile) {
+        options.encoding = "UTF-8"
+    }
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+
+configure(subprojects.findAll{it.name.contains('war')}){
+    apply plugin: 'war'
+
+    task createWebProject(dependsOn: 'createJavaProject') << {
+        def webAppDir = file("$webAppDirName")
+        webAppDir.mkdirs()
+    }
+
+}
