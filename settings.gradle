@@ -1,3 +1,3 @@
-rootProject.name = 'testmvc'
-include 'testmvc-war'
+rootProject.name = 'car'
+include 'car-war'
 
