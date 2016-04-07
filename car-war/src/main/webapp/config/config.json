@@ -1,7 +1,7 @@
 {
   "banner":"/index/banner",
   "services":"/index/services",
-  "ourwork":"/common/news/getDataByPage?type=3",
-  "gallery":"/common/news/getDataByPage?type=4",
-  "menu":"/common/getMenu"
+  "news":"/index/news",
+  "newinfo":"/info/newinfo?id=",
+  "photos":"/info/photos"
 }

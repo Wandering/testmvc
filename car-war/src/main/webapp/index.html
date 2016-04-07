@@ -12,8 +12,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="css/style.css" rel='stylesheet' type='text/css' />	
 <script src="js/jquery.min.js"> </script>
 <!--webfonts-->
- <link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
- <link href='http://fonts.useso.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
+ <link href='css/founts.css' rel='stylesheet' type='text/css'>
 <!--//webfonts-->
 <script type="text/javascript" src="js/move-top.js"></script>
 <script type="text/javascript" src="js/easing.js"></script>
@@ -195,79 +194,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //welcome-bottom -->
 
 <!--start-video-->
-    <div class="news" id="news">
+    <div class="news" id="news" ng-controller="newsController" >
 	    <div class="container">
 			  <h3 class="tittle">经典系列</h3>
 			   <div class="news-top">
-					<div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;"><!-- start vertical Tabs-->
-						<ul class="resp-tabs-list">
-
-							<li class="resp-tab-item"><span>沃尔沃XC90</span></li>
-							<li class="resp-tab-item"><span>沃尔沃S60</span></li>
-							<li class="resp-tab-item"><span>沃尔沃140</span></li>
-							<li class="resp-tab-item"><span>V40 Cross Country</span></li>
+					<div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;"><!-- 标签切换-->
+						<ul class="resp-tabs-list"  >
+							<li class="resp-tab-item"><span>{{news[0].title}}</span></li>
+							<li class="resp-tab-item"><span>{{news[1].title}}</span></li>
+							<li class="resp-tab-item"><span>{{news[2].title}}</span></li>
+							<li class="resp-tab-item"><span>{{news[3].title}}</span></li>
 						</ul>
 						<div class="resp-tabs-container">
-							<span class="resp-arrow"></span><i class="icon_1"></i>
+							<span class="resp-arrow"></span><i class="icon_2"></i>
 							<div class="new_posts resp-tab-content">
 							   <div class="news-01">
-							      <a href="single.html"> <img src="images/n1.jpg" alt=" " class="img-responsive" /></a>
+							      <a href="{{news[0].url}}"> <img src="{{news[0].imgUrl}}" alt=" " class="img-responsive" /></a>
 								    <div class="item_info">
-									    <a href="single.html"> <h3>沃尔沃XC90</h3></a>
+									    <a href="single.html"> <h3>{{news[0].title}}</h3></a>
 											<ul>
-											   <li><i class="glyphicon"></i>在本次广州车展上亮相的V40 Cross Country无疑是一款沃尔沃历史上的重量级车型。作为沃尔沃的第一款紧凑型越界车，V40 Cross Country的外形极为流畅优雅，而细节部分却融入了北欧传统的粗犷、野性元素。</li>
+											   <li><i class="glyphicon"></i>{{news[0].subContent}}</li>
 											</ul>
 									  </div>
 							   </div>
 							</div>
 							<span class="resp-arrow"></span><i class="icon_2"></i>
 							<div class="new_posts resp-tab-content">
-			                   <div class="news-01">
-							       <a href="single.html">  <img src="images/n2.jpg" alt=" " class="img-responsive" /></a>
+								<div class="news-01">
+									<a href="{{news[1].url}}"> <img src="{{news[1].imgUrl}}" alt=" " class="img-responsive" /></a>
 									<div class="item_info">
-									    <a href="single.html"> <h3>Lorem Ipsum is simply </h3></a>
-											<ul>
-												<a href="single.html"> <h3>沃尔沃XC90</h3></a>
-												<ul>
-													<li><i class="glyphicon"></i>在本次广州车展上亮相的V40 Cross Country无疑是一款沃尔沃历史上的重量级车型。作为沃尔沃的第一款紧凑型越界车，V40 Cross Country的外形极为流畅优雅，而细节部分却融入了北欧传统的粗犷、野性元素。</li>
-												</ul>
-											</ul>				
-									  </div>
-							   </div>			
-										
+										<a href="single.html"> <h3>{{news[1].title}}</h3></a>
+										<ul>
+											<li><i class="glyphicon"></i>{{news[1].subContent}}</li>
+										</ul>
+									</div>
 								</div>
+							</div>
 							<span class="resp-arrow"></span><i class="icon_2"></i>
 							<div class="new_posts resp-tab-content">
-				              <div class="news-01">
-							      <a href="single.html"> <img src="images/n3.jpg" alt=" " class="img-responsive" /></a>
-								  <div class="item_info">
-									  <a href="single.html"> <h3>沃尔沃XC90</h3></a>
-									  <ul>
-										  <li><i class="glyphicon"></i>在本次广州车展上亮相的V40 Cross Country无疑是一款沃尔沃历史上的重量级车型。作为沃尔沃的第一款紧凑型越界车，V40 Cross Country的外形极为流畅优雅，而细节部分却融入了北欧传统的粗犷、野性元素。</li>
-									  </ul>
-									  </div>
-							   </div>
-										
+								<div class="news-01">
+									<a href="{{news[2].url}}"> <img src="{{news[2].imgUrl}}" alt=" " class="img-responsive" /></a>
+									<div class="item_info">
+										<a href="single.html"> <h3>{{news[2].title}}</h3></a>
+										<ul>
+											<li><i class="glyphicon"></i>{{news[2].subContent}}</li>
+										</ul>
+									</div>
+								</div>
 							</div>
-							<span class="resp-arrow"></span><i class="icon_4"></i>
-							  <div class="new_posts resp-tab-content">
-							   <div class="news-01">
-							     <a href="single.html"> <img src="images/n4.jpg" alt=" " class="img-responsive" /></a>
-								 <div class="item_info">
-									 <a href="single.html"> <h3>沃尔沃XC90</h3></a>
-									 <ul>
-										 <li><i class="glyphicon"></i>在本次广州车展上亮相的V40 Cross Country无疑是一款沃尔沃历史上的重量级车型。作为沃尔沃的第一款紧凑型越界车，V40 Cross Country的外形极为流畅优雅，而细节部分却融入了北欧传统的粗犷、野性元素。</li>
-									 </ul>
-									  </div>
-							   </div>
-							  </div>									
+							<span class="resp-arrow"></span><i class="icon_2"></i>
+							<div class="new_posts resp-tab-content">
+								<div class="news-01">
+									<a href="{{news[3].url}}"> <img src="{{news[3].imgUrl}}" alt=" " class="img-responsive" /></a>
+									<div class="item_info">
+										<a href="single.html"> <h3>{{news[3].title}}</h3></a>
+										<ul>
+											<li><i class="glyphicon"></i>{{news[3].subContent}}</li>
+										</ul>
+									</div>
+								</div>
+							</div>
 						<div class="clearfix"></div>
 					</div>
 					<script src="js/easyResponsiveTabs.js"></script>
 						<script type="text/javascript">
-							$(document).ready(function () {
+							(document).ready(setTimeout(function () {
 								$('#horizontalTab').easyResponsiveTabs({
-									type: 'default', //Types: default, vertical, accordion           
+									type: 'default', //Types: default, vertical, accordion
 									width: 'auto', //auto or any width like 600px
 									fit: true,   // 100% fit in a container
 									closed: 'accordion', // Start closed if in accordion view
@@ -287,7 +280,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									width: 'auto',
 									fit: true
 								});
-							});
+							},1000));
 						</script>
 				</div>
 			<div class="clearfix"> </div>

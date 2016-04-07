@@ -1,6 +1,15 @@
 /**
  * Created by admin on 2016/4/6.
  */
+(function ($) {
+    $.getUrlParam = function (name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+})(jQuery);
+
+
 var app = angular.module('lyyApp', []);
 app.controller('IndexController', ['$scope', function($scope) {
 }]);
@@ -16,13 +25,41 @@ app.controller('servicesController', ['$scope', function($scope) {
         $scope.services=res;
         console.log(res)
     });
+}]);
+
+app.controller('newInfoController', ['$scope', function($scope) {
+    var id = $.getUrlParam("id");
+    if(!id){
+        id=0;
+    }
+    ajaxFun(getUrlList().newinfo+id, "GET", {},false, function(res){
+        $scope.info=res;
+        console.log(res)
+    });
+}]);
+app.controller('newsController', ['$scope', function($scope) {
+    ajaxFun(getUrlList().news, "GET", {},false, function(res){
+        $scope.news=res;
+        console.log(res)
+    });
 
 }]);
+
+app.controller('photoController', ['$scope', function($scope) {
+    ajaxFun(getUrlList().photos, "GET", {},false, function(res){
+        $scope.photos=res;
+        console.log(res)
+    });
+
+}]);
+
+
+
+
 
 var getUrlList=function(){
     return JSON.parse(localStorage.getItem("urlConfig"));
 }
-
 var initUrlCofig=function(){
     $.ajax({
         type: "GET",
