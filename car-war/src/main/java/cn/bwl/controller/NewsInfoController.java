@@ -22,7 +22,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping(value="/info")
-public class JavaInfo {
+public class NewsInfoController {
 
 
     /**
