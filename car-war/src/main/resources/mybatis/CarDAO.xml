@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.bwl.dao.ICarDAO">
+
+    <select id="bannerQueryList" resultType="java.util.Map">
+        SELECT * FROM car_banner
+    </select>
+
+    <select id="newsQueryList" resultType="java.util.Map">
+        SELECT * FROM car_news
+    </select>
+    <select id="photosQueryList" resultType="java.util.Map">
+        SELECT * FROM car_photos
+    </select>
+    <select id="servicesQueryList"  resultType="java.util.Map">
+        SELECT * FROM car_services
+    </select>
+</mapper>
+

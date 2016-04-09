@@ -8,6 +8,7 @@
 package cn.bwl.controller;
 
 import cn.bwl.domain.TestDomain;
+import cn.bwl.service.ICarServcie;
 import cn.bwl.service.ITestServcie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -26,19 +27,19 @@ public class IndexController {
 
 
     @Autowired
-    private ITestServcie testServcie;
+    private ICarServcie carServcie;
 
 
-    /**
-     * 测试连接请求
-     * @return
-     */
-    @RequestMapping(value="/test")
-    @ResponseBody
-    public List<TestDomain> queryList(){
-        Map<String,Object> map = new HashMap<>();
-        return testServcie.queryList(map);
-    }
+//    /**
+//     * 测试连接请求
+//     * @return
+//     */
+//    @RequestMapping(value="/test")
+//    @ResponseBody
+//    public List<TestDomain> queryList(){
+//        Map<String,Object> map = new HashMap<>();
+//        return carServcie.(map);
+//    }
 
     /**
      * banner
@@ -47,14 +48,18 @@ public class IndexController {
     @RequestMapping(value="/banner")
     @ResponseBody
     public Object banner(){
-        List<Map<String,Object>> list= new ArrayList<>();
-        for(int i = 0 ; i<5;i++) {
-            Map<String, Object> map = new HashMap<>();
-            map.put("title", "标题"+i);
-            map.put("content", "内容"+i);
-            list.add(map);
-        }
+        List<Map<String,Object>> list=null;
+        list=carServcie.bannerQueryList();
+        if(list==null) {
+            list = new ArrayList<>();
+            for (int i = 0; i < 5; i++) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("title", "标题" + i);
+                map.put("content", "内容" + i);
+                list.add(map);
+            }
 
+        }
         return list;
     }
 
@@ -65,13 +70,17 @@ public class IndexController {
     @RequestMapping(value="/services")
     @ResponseBody
     public Object services(){
-        List<Map<String,Object>> list= new ArrayList<>();
-        for(int i = 0 ; i<4;i++) {
-            Map<String, Object> map = new HashMap<>();
-            map.put("imgUrl", "images/"+(i+7)+".jpg");
-            map.put("title", "标题"+i);
-            map.put("content", "内容"+i);
-            list.add(map);
+        List<Map<String,Object>> list=null;
+        list=carServcie.servicesQueryList();
+        if(list==null) {
+            list = new ArrayList<>();
+            for (int i = 0; i < 4; i++) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("imgUrl", "images/" + (i + 7) + ".jpg");
+                map.put("title", "标题" + i);
+                map.put("content", "内容" + i);
+                list.add(map);
+            }
         }
 
         return list;
@@ -84,15 +93,19 @@ public class IndexController {
     @RequestMapping(value="/news")
     @ResponseBody
     public Object news(){
-        List<Map<String,Object>> list= new ArrayList<>();
-        for(int i = 0 ; i<4;i++) {
-            Map<String, Object> map = new HashMap<>();
-            map.put("imgUrl", "images/n"+(i+1)+".jpg");
-            map.put("title", "标题"+i);
-            map.put("content", "内容"+i);
-            map.put("subContent", "内容简介"+i);
-            map.put("url", "single.html");
-            list.add(map);
+        List<Map<String,Object>> list=null;
+        list=carServcie.newsQueryList();
+        if(list==null) {
+            list = new ArrayList<>();
+            for (int i = 0; i < 4; i++) {
+                Map<String, Object> map = new HashMap<>();
+                map.put("imgUrl", "images/n" + (i + 1) + ".jpg");
+                map.put("title", "标题" + i);
+                map.put("content", "内容" + i);
+                map.put("subContent", "内容简介" + i);
+                map.put("url", "single.html");
+                list.add(map);
+            }
         }
         return list;
     }
