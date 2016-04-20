@@ -54,7 +54,7 @@ public class NewsInfoController {
     public Object photos(){
         List<Map<String,Object>> list=null;
         list=carServcie.photosQueryList();
-        if(list==null) {
+        if(list==null || list.size()==0) {
             list = new ArrayList<>();
             for (int i = 0; i < 8; i++) {
                 Map<String, Object> map = new HashMap<>();

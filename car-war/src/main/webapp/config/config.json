@@ -1,5 +1,5 @@
 {
-  "banner":"/index/banner",
+  "carsbanner":"/car/carQueryPage",
   "services":"/index/services",
   "news":"/index/news",
   "newinfo":"/info/newinfo?id=",

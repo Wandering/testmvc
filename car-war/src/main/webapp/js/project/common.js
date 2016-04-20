@@ -14,44 +14,31 @@ var app = angular.module('lyyApp', []);
 app.controller('IndexController', ['$scope', function($scope) {
 }]);
 app.controller('bannersController', ['$scope', function($scope) {
-    ajaxFun(getUrlList().banner, "GET", {},false, function(res){
-        $scope.banners=res;
+    ajaxFun(getUrlList().carsbanner, "GET", {},false, function(res){
+        $scope.carsbanner=res.list;
         console.log(res)
     });
 
 }]);
-app.controller('servicesController', ['$scope', function($scope) {
-    ajaxFun(getUrlList().services, "GET", {},false, function(res){
-        $scope.services=res;
-        console.log(res)
-    });
-}]);
 
-app.controller('newInfoController', ['$scope', function($scope) {
-    var id = $.getUrlParam("id");
-    if(!id){
-        id=0;
-    }
-    ajaxFun(getUrlList().newinfo+id, "GET", {},false, function(res){
-        $scope.info=res;
-        console.log(res)
-    });
-}]);
+//app.controller('newInfoController', ['$scope', function($scope) {
+//    var id = $.getUrlParam("id");
+//    if(!id){
+//        id=0;
+//    }
+//    ajaxFun(getUrlList().newinfo+id, "GET", {},false, function(res){
+//        $scope.info=res;
+//        console.log(res)
+//    });
+//}]);
 app.controller('newsController', ['$scope', function($scope) {
-    ajaxFun(getUrlList().news, "GET", {},false, function(res){
-        $scope.news=res;
+    ajaxFun(getUrlList().carsbanner, "GET", {},false, function(res){
+        $scope.carsbanner=res.list;
         console.log(res)
     });
 
 }]);
 
-app.controller('photoController', ['$scope', function($scope) {
-    ajaxFun(getUrlList().photos, "GET", {},false, function(res){
-        $scope.photos=res;
-        console.log(res)
-    });
-
-}]);
 
 
 
@@ -63,7 +50,7 @@ var getUrlList=function(){
 var initUrlCofig=function(){
     $.ajax({
         type: "GET",
-        url: "/config/config.json",
+        url: "config/config.json",
         data: {},
         dataType: "json",
         success: function(data){

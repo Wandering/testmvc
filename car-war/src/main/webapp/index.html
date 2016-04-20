@@ -1,368 +1,516 @@
-<!DOCTYPE HTML>
-<html>
+<!DOCTYPE html>
+<!--[if lte IE 8]>              <html class="ie8 no-js" lang="en">     <![endif]-->
+<!--[if IE 9]>					<html class="ie9 no-js" lang="en">     <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html class="not-ie no-js" lang="en">  <!--<![endif]-->
 <head>
-<title>Home</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="keywords" content="Roadster Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-<!-- Custom Theme files -->
-<link href="css/style.css" rel='stylesheet' type='text/css' />	
-<script src="js/jquery.min.js"> </script>
-<!--webfonts-->
- <link href='css/founts.css' rel='stylesheet' type='text/css'>
-<!--//webfonts-->
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
-<script type="text/javascript" src="js/angular.min.js"></script>
-<!--<script src="http://apps.bdimg.com/libs/angular.js/1.4.6/angular.min.js"></script>-->
-<script type="text/javascript" src="js/project/common.js"></script>
-<script type="text/javascript">
-			jQuery(document).ready(function($) {
-				$(".scroll").click(function(event){		
-					event.preventDefault();
-					$('html,body').animate({scrollTop:$(this.hash).offset().top},900);
-				});
-			});
-</script>
 
-</head>
-<body  ng-app="lyyApp" ng-controller="IndexController">
-	<!--start-home-->
-<div id="home" class="header">
-		<div class="container">
-	     <div class="header-top">
-	        <div class="logo">
-					<a href="index.html"><h1><span>R</span>oadster</h1></a>
-				</div>
-					<div class="clearfix"> </div>
-					<div class="quate">
-									<a href="#" class="hvr-bounce-to-bottom m1">Get a Quote</a>
-								</div>
-					<span class="menu"></span>
-				    <div class="top-menu">
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	
+	<title>Car Dealer | Home</title>
+	
+	<meta name="description" content="" />
+	<meta name="author" content="" />
+	
+	<link rel="shortcut" href="images/favicon.ico" />
+	<link rel="stylesheet" href="css/style.css" media="screen" />
+	<link rel="stylesheet" href="css/skeleton.css" media="screen" />
+	<link rel="stylesheet" href="sliders/flexslider/flexslider.css" media="screen" />
+	<link rel="stylesheet" href="fancybox/jquery.fancybox.css" media="screen" />
 
-						<ul class="cl-effect-16">
-							<li><a class="active" href="index.html" data-hover="首页">首页</a></li>
-							<li><a href="about.html" data-hover="关于">关于</a></li>
-							<li><a href="typography.html" data-hover="服务">服务</a></li>
-							<li><a href="portfolio.html" data-hover="相册">相册</a></li>
-							<li><a href="#news" class="scroll" data-hover="新闻">新闻</a></li>
-							<li><a href="contact.html" data-hover="联系我们">联系我们</a></li>
-						</ul>
-						</div>
-							<!--script-for-menu-->
-							<script>
-							$( "span.menu" ).click(function() {
-							  $( ".top-menu" ).slideToggle( "slow", function() {
-								// Animation complete.
-							  });
-							});
-						</script>
-				<!-- start-search-->
-			<div class="clearfix"> </div>
-        </div>
-			 	<div class="banner">
-						<div class="callbacks_container">
-						<ul class="rslides callbacks callbacks1" id="slider4"  ng-controller="bannersController"  >
-							<li class="" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
-								<div class="banner-info">
-									<h3>{{banners[0].title}}</h3>
-									<p>{{banners[0].content}}</p>
-								</div>
-							</li>
-							<li class="callbacks1_on" style="display: block; float: left; position: relative; opacity: 1; z-index: 2; transition: opacity 500ms ease-in-out;">
-								<div class="banner-info">
-									<h3>{{banners[1].title}}</h3>
-									<p>{{banners[1].content}}</p>
-								</div>
-							</li>
-							<li class="" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
-								<div class="banner-info">
-									<h3>{{banners[2].title}}</h3>
-									<p>{{banners[2].content}}</p>
-								</div>
-							</li>
-							<li class="" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
-								<div class="banner-info">
-									<h3>{{banners[3].title}}</h3>
-									<p>{{banners[3].content}}</p>
-								</div>
-							</li>
-							<li class="" style="display: block; float: none; position: absolute; opacity: 0; z-index: 1; transition: opacity 500ms ease-in-out;">
-								<div class="banner-info">
-									<h3>{{banners[4].title}}</h3>
-									<p>{{banners[4].content}}</p>
-								</div>
-							</li>
-						</ul>
-						</div>
-						<!--banner-Slider-->
-						<script src="js/responsiveslides.min.js"></script>
-						 <script>
-						// You can also use "$(window).load(function() {"
-						$(function () {
-						  // Slideshow 4
-						  $("#slider4").responsiveSlides({
-						auto: true,
-						pager: true,
-						nav:false,
-						speed: 500,
-						namespace: "callbacks",
-						before: function () {
-						  $('.events').append("<li>before event fired.</li>");
-						},
-						after: function () {
-						  $('.events').append("<li>after event fired.</li>");
-						}
-						  });
 
-						});
-						  </script>
+	<!-- HTML5 Shiv + detect touch events -->
+	<script type="text/javascript" src="js/jquery-1.7.2.min.js"> </script>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/project/common.js"></script>
+	<script type="text/javascript" src="js/modernizr.custom.js"></script>
 
-			</div>
-		</div>
-	</div>
-	<!--start-banner-bottom-->
-	<!-- welcome-bottom -->
-	<div class="welcome-bottom">
-		<div class="container">
-			<div class="welcome-bottom-banner"  ng-controller="servicesController" >
-				<h3 class="tittle">Special Services</h3>
-				<div class="welcome-bottom-grids">
-					<div class="welcome-bottom-grid-left">
-						<div class="welcome-bottom-grid-left-g">
-							<img src="{{services[0].imgUrl}}" alt=" " class="img-responsive" />
-							<div class="welcome-bottom-grid-left-gpos">
-								<h4>{{services[0].title}}</h4>
-								<p>{{services[0].content}}</p>
-								<div class="more">
-									<a href="#" class="hvr-bounce-to-bottom m1">更多...</a>
-								</div>
-							</div>
-						</div>
-						<div class="welcome-bottom-grid-left-g">
-							<img src="{{services[1].imgUrl}}" alt=" " class="img-responsive" />
-							<div class="welcome-bottom-grid-left-gpos1">
-								<h4>{{services[1].title}}</h4>
-								<p>{{services[1].content}}</p>
-								<div class="more">
-									<a href="#" class="hvr-bounce-to-bottom m1">更多...</a>
-								</div>
-							</div>
-						</div>
-						<div class="car-text">
-							<h5>Lorem Ipsum is simply</h5>
-							<p>Dolor amet At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias </p>
-						
-						</div>
-					</div>
-					<div class="welcome-bottom-grid-right">
-						<div class="car-text">
-						<h5>Lorem Ipsum is simply</h5>
-							<p>Dolor amet At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias </p>
-							
-						</div>
-						<div class="welcome-bottom-grid-left-g">
-							<img src="{{services[2].imgUrl}}" alt=" " class="img-responsive" />
-							<div class="welcome-bottom-grid-left-gpos">
-								<h4>Pellentesque mollis</h4>
-								<p>Nulla et finibus libero. Suspendisse vitae ex facilisis, ultricies est sed, porta ante. Vivamus tristique luctus lorem, eget dignissim lacus sodales tristique.</p>
-								<div class="more">
-									<a href="#" class="hvr-bounce-to-bottom m1">更多...</a>
-								</div>
-							</div>
-						</div>
-						<div class="welcome-bottom-grid-left-g">
-							<img src="{{services[3].imgUrl}}" alt=" " class="img-responsive" />
-							<div class="welcome-bottom-grid-left-gpos1">
-								<h4>Pellentesque mollis</h4>
-								<p>Nulla et finibus libero. Suspendisse vitae ex facilisis, ultricies est sed, porta ante. Vivamus tristique luctus lorem, eget dignissim lacus sodales tristique.</p>
-								<div class="more">
-									<a href="#" class="hvr-bounce-to-bottom m1">更多...</a>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="clearfix"> </div>
-				</div>
-			</div>
-		</div>
-	</div>
-<!-- //welcome-bottom -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></head>
+<body class="menu-1 h-style-1 text-1"   ng-app="lyyApp" ng-controller="IndexController">
 
-<!--start-video-->
-    <div class="news" id="news" ng-controller="newsController" >
-	    <div class="container">
-			  <h3 class="tittle">经典系列</h3>
-			   <div class="news-top">
-					<div id="verticalTab" class="resp-vtabs" style="display: block; width: 100%; margin: 0px;"><!-- 标签切换-->
-						<ul class="resp-tabs-list"  >
-							<li class="resp-tab-item"><span>{{news[0].title}}</span></li>
-							<li class="resp-tab-item"><span>{{news[1].title}}</span></li>
-							<li class="resp-tab-item"><span>{{news[2].title}}</span></li>
-							<li class="resp-tab-item"><span>{{news[3].title}}</span></li>
-						</ul>
-						<div class="resp-tabs-container">
-							<span class="resp-arrow"></span><i class="icon_2"></i>
-							<div class="new_posts resp-tab-content">
-							   <div class="news-01">
-							      <a href="{{news[0].url}}"> <img src="{{news[0].imgUrl}}" alt=" " class="img-responsive" /></a>
-								    <div class="item_info">
-									    <a href="single.html"> <h3>{{news[0].title}}</h3></a>
-											<ul>
-											   <li><i class="glyphicon"></i>{{news[0].subContent}}</li>
-											</ul>
-									  </div>
-							   </div>
-							</div>
-							<span class="resp-arrow"></span><i class="icon_2"></i>
-							<div class="new_posts resp-tab-content">
-								<div class="news-01">
-									<a href="{{news[1].url}}"> <img src="{{news[1].imgUrl}}" alt=" " class="img-responsive" /></a>
-									<div class="item_info">
-										<a href="single.html"> <h3>{{news[1].title}}</h3></a>
-										<ul>
-											<li><i class="glyphicon"></i>{{news[1].subContent}}</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<span class="resp-arrow"></span><i class="icon_2"></i>
-							<div class="new_posts resp-tab-content">
-								<div class="news-01">
-									<a href="{{news[2].url}}"> <img src="{{news[2].imgUrl}}" alt=" " class="img-responsive" /></a>
-									<div class="item_info">
-										<a href="single.html"> <h3>{{news[2].title}}</h3></a>
-										<ul>
-											<li><i class="glyphicon"></i>{{news[2].subContent}}</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<span class="resp-arrow"></span><i class="icon_2"></i>
-							<div class="new_posts resp-tab-content">
-								<div class="news-01">
-									<a href="{{news[3].url}}"> <img src="{{news[3].imgUrl}}" alt=" " class="img-responsive" /></a>
-									<div class="item_info">
-										<a href="single.html"> <h3>{{news[3].title}}</h3></a>
-										<ul>
-											<li><i class="glyphicon"></i>{{news[3].subContent}}</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						<div class="clearfix"></div>
-					</div>
-					<script src="js/easyResponsiveTabs.js"></script>
-						<script type="text/javascript">
-							(document).ready(setTimeout(function () {
-								$('#horizontalTab').easyResponsiveTabs({
-									type: 'default', //Types: default, vertical, accordion
-									width: 'auto', //auto or any width like 600px
-									fit: true,   // 100% fit in a container
-									closed: 'accordion', // Start closed if in accordion view
-									activate: function(event) { // Callback function if tab is switched
-										var $tab = $(this);
-										var $info = $('#tabInfo');
-										var $name = $('span', $info);
+<div class="wrap">
+	
+	<!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->	
+	
+	<header id="header" class="clearfix">
+		
+		<a href="index.html" id="logo"><img src="images/logo.png" alt="汽车销售网" /></a>
+		
+		<div class="widget-container widget_search">
+			<!-- -->
+			<!--<span class="call"><span>+1 234</span> 567-8901</span><br />-->
+			<!-- -->
+			<!--<span class="adds">12 Street, Los Angeles, CA, 94101</span>-->
 
-										$name.text($tab.text());
+			<!--<form action="#" id="searchform" method="get" />-->
 
-										$info.show();
-									}
-								});
+				<!--<p>-->
+					<!--<input type="text" id="s" placeholder="Search" />-->
+					<!--<button type="submit" id="searchsubmit"></button>-->
+				<!--</p>-->
 
-								$('#verticalTab').easyResponsiveTabs({
-									type: 'vertical',
-									width: 'auto',
-									fit: true
-								});
-							},1000));
-						</script>
-				</div>
-			<div class="clearfix"> </div>
-		</div>
-		</div>
-</div>
+			<!--</form>&lt;!&ndash;/ #searchform&ndash;&gt;-->
 
-		<!--footer-->
-			<div class="footer">
-				<div class="container">
-					 <div class="footer-inner">
-					    <div class="col-md-3 footer-grid">
-					       <h3 class="widget-title">Locate Us</h3>
-						   <p> <i class="glyphicon glyphicon-map-marker"></i> PO Box 15142 Collins Street<br>
-							120 King Street, London<br>
-							Victoria 2000 London</span></p>
-							<p class="phone"><i class="glyphicon glyphicon-earphone"></i> +61 0 1234 0000</p>
-							<p><i class="glyphicon glyphicon-envelope"></i> <a href="mailto:info@example.com"> mail@example.com</a></p>
-			           </div>
-					   <div class="col-md-3 footer-grid second">
-					       <h3 class="widget-title">Customer Services</h3>
-						      <ul class="menu-customer-service">
-						        <li><a href="#">Toll Free 1-800-carzone</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Customer Care</a></li>
-								<li><a href="#">Policies</a></li>
-								<li><a href="#">Online Returns</a></li>
-								<li><a href="#">My Appointments</a></li>
-							  </ul>
-			           </div>
-					    <div class="col-md-3 footer-grid">
-					       <h3 class="widget-title">Customer Information</h3>
-						      <ul class="menu-customer-service">
-						        <li><a href="#">Toll Free 1-800-carzone</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Customer Care</a></li>
-								<li><a href="#">Policies</a></li>
-								<li><a href="#">Online Returns</a></li>
-								<li><a href="#">My Appointments</a></li>
-							  </ul>
-			           </div>
-					   <div class="col-md-3 footer-grid lost">
-					       <h3 class="widget-title">Get in touch!</h3>
-						        <p>PO Box 15142 Collins Street<i class="glyphicon glyphicon-map-marker"></i> <br>
-								Victoria 2007 London<br>
-								Anona Headquarters</span></p>
-								<p class="phone">(+00) 0123-456-798 <i class="glyphicon glyphicon-earphone"></i></p>
-								<p><a href="mailto:info@example.com">mail@example.com</a> <i class="glyphicon glyphicon-envelope"></i></p>
-			           </div>
-					   <div class="clearfix"></div>
-			         </div>
-			    </div>
-			</div>
-			<div class="copy">
-		              <p>Copyright &copy; 2016.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
-		            </div>
-			<!--start-smooth-scrolling-->
-			<script type="text/javascript">
-								jQuery(document).ready(function($) {
-									$(".scroll").click(function(event){		
-										event.preventDefault();
-										$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-									});
-								});
-								</script>
-							<!--start-smoth-scrolling-->
-						<script type="text/javascript">
-									$(document).ready(function() {
-										/*
-										var defaults = {
-								  			containerID: 'toTop', // fading element id
-											containerHoverID: 'toTopHover', // fading element hover id
-											scrollSpeed: 1200,
-											easingType: 'linear' 
-								 		};
-										*/
-										
-										$().UItoTop({ easingType: 'easeOutQuart' });
-										
-									});
-								</script>
-		<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		</div><!--/ .widget-container-->		
+		
+		<nav id="navigation" class="navigation">
+			
+			<ul>
+				<li class="current-menu-item"><a href="index.html">主页</a></li>
+				<li><a href="all-listings.html">汽车天下</a></li>
+				<li><a href="alternative-blog.html">汽车新闻</a></li>
+				<li><a href="sales-reps.html">销售代表</a></li>
+				<li><a href="contact.html">关于我们</a></li>
+			</ul>
+			
+		</nav><!--/ #navigation-->
+		
+	</header><!--/ #header-->
+	<div class="copyrights">Collect from <a href="http://www.mycodes.net/" >Website Template</a></div>
+	<!-- - - - - - - - - - - - - - end Header - - - - - - - - - - - - - - - - -->	
+	
+	
+	<!-- - - - - - - - - - - - - - Top Panel - - - - - - - - - - - - - - - - -->	
+	
+	<div class="top-panel clearfix">
+		
+		<!-- - - - - - - - - - - Slider - - - - - - - - - - - - - -->	
+
+		<div id="slider" class="flexslider clearfix"  ng-controller="bannersController">
+
+			<ul class="slides">
+
+				<li ng-repeat="car in carsbanner">
+					<img src="{{car.img}}" alt="{{car.name}}" />
+
+					<div class="caption">
+						<div class="caption-entry">
+
+							<dl class="auto-detailed clearfix">
+								<dt><span class="model">{{car.name}}</span></dt>
+								<dd><span class="heading">{{car.price}}</span></dd>
+							</dl><!--/ .auto-detailed-->
+
+							<a href="#" class="button orange">详情 &raquo;</a>
+
+						</div><!--/ .caption-entry-->
+					</div><!--/ .caption-->
+				</li>
+
+			</ul><!--/ .slides-->
+
+		</div><!--/ #slider-->
+
+		<!-- - - - - - - - - - - end Slider - - - - - - - - - - - - - -->
+		
+		<!-- - - - - - - - - - - Search Panel - - - - - - - - - - - - - -->
+		
+		<div class="widget_custom_search">
+
+			<h3 class="widget-title">汽车搜索</h3>
+
+			<form action="/" id="boxpanel" class="form-panel" />
+
+				<fieldset>
+					<label  for="name">汽车名称:</label>
+					<input id="name" />
+				</fieldset>
+
+				<fieldset>
+					<label for="minprice">最低价:</label>
+					<input id="minprice" />
+				</fieldset>
+				<fieldset>
+					<label for="maxprice">最高价:</label>
+					<input id="maxprice" />
+				</fieldset>
+
+				<div class="clear"></div>
+				<button id="submitSearch" class="submit-search" type="submit">搜索</button>
+
+			</form><!--/ .form-panel-->
+
+		</div><!--/ .main-search-panel-->
+		
+		<!-- - - - - - - - - - end Search Panel - - - - - - - - - - - - -->
+		
+	</div><!--/ .top-panel-->
+	
+	<!-- - - - - - - - - - - - - end Top Panel - - - - - - - - - - - - - - - -->	
+	
+	<div class="main">
+
+		<!-- - - - - - - - - - - - - - - Container - - - - - - - - - - - - - - - - -->	
+
+		<section class="container sbr clearfix">
+
+			<!-- - - - - - - - - - - - - - - Content - - - - - - - - - - - - - - - - -->		
+
+			<section id="content" class="twelve columns"   ng-controller="newsController">
+				
+				<div class="recent-list-cars">
+					
+					<h3 class="widget-title">最新汽车</h3>
+
+					<ul class="clearfix">
+
+						<li  ng-repeat="car in carsbanner">
+							<a href="#" class="single-image video picture">
+								<img src="images/temp/thumb-1.jpg" alt="" />
+							</a>
+
+							<a href="#" class="list-meta">
+								<h6 class="title-list-item">{{car.name}}</h6>
+							</a>
+
+							<div class="detailed">
+								<span class="cost">8.966元</span>
+							</div><!--/ .detailed-->
+
+							<a href="one-products.html" class="button orange">详情</a>
+							<!--<label class="compare"><input type="checkbox" />Compare</label>-->
+
+						</li>
+
+						<li>
+							<a href="#" class="single-image picture video">
+								<img src="images/temp/thumb-2.jpg" alt="" />
+							</a>
+
+							<a href="#" class="list-meta">
+								<h6 class="title-list-item">2009 Aston Martin DB9</h6>
+							</a>
+
+							<div class="detailed">
+								<span class="cost">$8.966</span>
+								<span>1.4i TS 5Dr</span> <br />
+								<b>23000 Miles</b>	
+							</div><!--/ .detailed-->
+
+							<a href="#" class="button orange">Details</a>
+							<label class="compare"><input type="checkbox" />Compare</label>
+
+						</li>
+
+						<li>
+							<a href="#" class="single-image picture">
+								<img src="images/temp/thumb-3.jpg" alt="" />
+							</a>
+
+							<a href="#" class="list-meta">
+								<h6 class="title-list-item">2009 Aston Martin DB9</h6>
+							</a>
+
+							<div class="detailed">
+								<span class="cost">$8.966</span>
+								<span>1.4i TS 5Dr</span> <br />
+								<b>23000 Miles</b>	
+							</div><!--/ .detailed-->
+
+							<a href="#" class="button orange">Details</a>
+							<label class="compare"><input type="checkbox" />Compare</label>
+
+						</li>
+
+						<li>
+							<a href="#" class="single-image">
+								<img src="images/temp/no-thumb.jpg" alt="" />
+							</a>
+
+							<a href="#" class="list-meta">
+								<h6 class="title-list-item">2009 Aston Martin DB9</h6>
+							</a>
+
+							<div class="detailed">
+								<span class="cost">$8.966</span>
+								<span>1.4i TS 5Dr</span> <br />
+								<b>23000 Miles</b>	
+							</div><!--/ .detailed-->
+
+							<a href="#" class="button orange">Details</a>
+							<label class="compare"><input type="checkbox" />Compare</label>
+
+						</li>
+
+						<li>
+							<a href="#" class="single-image picture">
+								<img src="images/temp/thumb-4.jpg" alt="" />
+							</a>
+
+							<a href="#" class="list-meta">
+								<h6 class="title-list-item">2009 Aston Martin DB9</h6>
+							</a>
+
+							<div class="detailed">
+								<span class="cost">$8.966</span>
+								<span>1.4i TS 5Dr</span> <br />
+								<b>23000 Miles</b>	
+							</div><!--/ .detailed-->
+
+							<a href="#" class="button orange">Details</a>
+							<label class="compare"><input type="checkbox" />Compare</label>
+
+						</li>
+
+						<li>
+							<a href="#" class="single-image picture">
+								<img src="images/temp/thumb-5.jpg" alt="" />
+							</a>
+
+							<a href="#" class="list-meta">
+								<h6 class="title-list-item">2009 Aston Martin DB9</h6>
+							</a>
+
+							<div class="detailed">
+								<span class="cost">$8.966</span>
+								<span>1.4i TS 5Dr</span> <br />
+								<b>23000 Miles</b>	
+							</div><!--/ .detailed-->
+
+							<a href="#" class="button orange">Details</a>
+							<label class="compare"><input type="checkbox" />Compare</label>
+
+						</li>
+
+					</ul>
+
+					<a href="all-listings.html" class="see">查看更多</a>
+					
+				</div><!--/ .recent-list-cars-->
+				
+			</section><!--/ #content-->
+
+			<!-- - - - - - - - - - - - - - end Content - - - - - - - - - - - - - - - - -->	
+
+
+			<!-- - - - - - - - - - - - - - - Sidebar - - - - - - - - - - - - - - - - -->	
+
+			<aside id="sidebar" class="four columns">
+				
+				<!--<div class="widget-container widget_loan_calculator">-->
+					<!-- -->
+					<!--<div class="widget-head">-->
+						<!--<h3 class="widget-title">Loan Calculator</h3>-->
+					<!--</div>-->
+					<!-- -->
+					<!--<div class="entry-loan">-->
+						<!-- -->
+						<!--<table>-->
+							<!--<tr>-->
+								<!--<td><label for="loan_amount">Loan Amount</label></td>-->
+								<!--<td><input id="loan_amount" type="text" value="0.00" /></td>-->
+								<!--<td>$</td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td><label for="payment">Down Payment</label></td>-->
+								<!--<td><input id="payment" type="text" value="0.00" /></td>-->
+								<!--<td>$</td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td><label for="rate">Annual Rate</label></td>-->
+								<!--<td><input id="rate" type="text" value="0.00" /></td>-->
+								<!--<td>%</td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td><label for="term">Term</label></td>-->
+								<!--<td><input id="term" type="text" value="0.00" /></td>-->
+								<!--<td>Yrs</td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td>-->
+									<!--<a id="buttonCalculate" href="#" class="button orange">Calculate</a>-->
+								<!--</td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td><label for="payments">Payments</label></td>-->
+								<!--<td><input id="payments" type="text" value="0.00" /></td>-->
+								<!--<td></td>-->
+							<!--</tr>-->
+							<!--<tr>-->
+								<!--<td><label for="mpayment">Monthly Payment</label></td>-->
+								<!--<td><input id="mpayment" type="text" value="0.00" /></td>-->
+								<!--<td>$</td>-->
+							<!--</tr>-->
+						<!--</table>-->
+						<!-- -->
+					<!--</div>&lt;!&ndash;/ .entry-loan&ndash;&gt;-->
+					<!-- -->
+				<!--</div>&lt;!&ndash;/ .widget-container&ndash;&gt;-->
+				
+				<div class="widget-container widget_recent_entries">
+					
+					<h3 class="widget-title">热门新闻</h3>
+					
+					<ul>
+						<li><a href="#">新闻1</a></li>
+						<li><a href="#">新闻2</a></li>
+						<li><a href="#">新闻3</a></li>
+					</ul>
+					
+					<a href="#" class="see">查看更多新闻</a>
+					
+				</div><!--/ .widget-container-->
+
+			</aside><!--/ #sidebar-->
+
+			<!-- - - - - - - - - - - - - end Sidebar - - - - - - - - - - - - - - - - -->
+
+		</section><!--/.container -->
+
+		<!-- - - - - - - - - - - - - end Container - - - - - - - - - - - - - - - - -->			
+		
+	</div><!--/ .main-->
+
+	
+	<!-- - - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->	
+	
+	<footer id="footer" class="container clearfix">
+		
+		<section class="container clearfix">
+			
+			<div class="four columns">
+
+				<div class="widget-container widget_text">
+
+					<h3 class="widget-title">About Us</h3>
+
+					<div class="textwidget">
+
+						<p class="white">
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor. 
+						</p>	
+
+						<p>
+							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor 
+							incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+							exercitation.
+						</p>
+
+					</div><!--/ .textwidget-->
+
+					<a href="#" class="see">Read more</a>
+
+				</div><!--/ .widget-container-->	
+
+			</div><!--/ .four .columns-->
+
+			<div class="four columns">
+
+				<div class="widget-container widget_text">
+
+					<h3 class="widget-title">Our Hours</h3>
+
+					<div class="textwidget">
+
+						<ul class="hours">
+
+							<li>Monday <span>8 am to 7 pm</span></li>
+							<li>Tuesday <span>8 am to 9 pm</span></li>
+							<li>Wednesday <span>8 am to 9 pm</span></li>
+							<li>Thursday <span>8 am to 9 pm</span></li>
+							<li>Friday <span>8 am to 9 pm</span></li>
+							<li>Saturday <span>8 am to 9 pm</span></li>
+							<li>Sunday <span>Closed</span></li>
+
+						</ul><!--/ .hours-->
+
+					</div><!--/ .textwidget-->
+
+				</div><!--/ .widget-container-->
+
+			</div><!--/ .four .columns-->
+
+			<div class="four columns">
+
+				<div class="widget-container widget_contacts">
+
+					<h3 class="widget-title">Our Contacts</h3>			
+
+					<ul class="our-contacts">
+
+						<li class="address">
+							<b>Address Info 1:</b>
+							<p>Lorem ipsum Dolor sit amet, 658 Consectetur, Adipisicing 56 D</p>
+						</li>
+						<li class="phone">
+							<b>Phone:</b>&nbsp;<span>+1 (234) 567-8901</span> <br />
+							<b>FAX:</b>&nbsp;<span>+1 (234) 567-8902</span>
+						</li>
+						<li>
+							<b>Email: <a href="mailto:testmail@sitename.com">testmail@sitename.com</a></b>
+						</li>
+						<li>
+							<ul class="social-icons clearfix">
+								<li class="twitter"><a title="twitter" href="#">Twitter</a></li>
+								<li class="facebook"><a title="facebook" href="#">Facebook</a></li>
+								<li class="rss"><a title="rss" href="#">Rss</a></li>
+							</ul><!--/ .social-icons-->
+						</li>
+
+					</ul><!--/ .our-contacts-->
+
+				</div><!--/ .widget-container-->
+
+			</div><!--/ .four .columns-->
+
+			<div class="four columns">
+
+				<div id="gMap"></div>
+
+			</div><!--/ .four .columns-->
+			
+			<div class="adjective clearfix">
+
+				<p class="copyright">Copyright &copy; 2013. ThemeMakers. All rights reserved.Collect from <a href="http://www.mycodes.net/" title="源码之家" target="_blank">源码之家</a></p>
+
+			</div><!--/ .adjective-->
+
+		</section><!--/ .container-->
+		
+	</footer><!--/ #footer-->
+	
+	<!-- - - - - - - - - - - - - - - end Footer - - - - - - - - - - - - - - - - -->		
+	
+</div><!--/ .wrap-->
+
+<div class="account-wrapper">
+	
+	<form class="form-reg" method="post" action="" />
+		
+		<a href="#" class="log">Login</a>
+		
+		<p>
+			<label>Username*</label>
+			<input class="input-medium" type="text" />
+		</p>
+		
+		<p>
+			<label>Password*</label>
+			<input class="input-medium" type="password" />
+		</p>
+		
+		<p class="forgot-pass">
+			<a href="#">Forgot your password?</a>
+		</p>
+		
+		<p>
+			<a href="#" class="button dark enter-btn">Login</a>
+			<a href="#" class="button dark enter-btn">Create an account</a>
+		</p>
+		
+	</form><!--/ .form-reg-->
+	
+</div><!--/ .account-wrapper-->
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/jquery-1.7.2.min.js"><\/script>')</script>
+<!--[if lt IE 9]>
+	<script src="js/selectivizr-and-extra-selectors.min.js"></script>
+<![endif]-->
+<script src="sliders/flexslider/jquery.flexslider-min.js"></script>
+
+<script src="js/jquery.gmap.min.js"></script>
+<script src="js/custom.js"></script>
 
 </body>
 </html>

@@ -50,7 +50,7 @@ public class IndexController {
     public Object banner(){
         List<Map<String,Object>> list=null;
         list=carServcie.bannerQueryList();
-        if(list==null) {
+        if(list==null || list.size()==0) {
             list = new ArrayList<>();
             for (int i = 0; i < 5; i++) {
                 Map<String, Object> map = new HashMap<>();
@@ -72,7 +72,7 @@ public class IndexController {
     public Object services(){
         List<Map<String,Object>> list=null;
         list=carServcie.servicesQueryList();
-        if(list==null) {
+        if(list==null || list.size()==0) {
             list = new ArrayList<>();
             for (int i = 0; i < 4; i++) {
                 Map<String, Object> map = new HashMap<>();
@@ -95,7 +95,7 @@ public class IndexController {
     public Object news(){
         List<Map<String,Object>> list=null;
         list=carServcie.newsQueryList();
-        if(list==null) {
+        if(list==null || list.size()==0) {
             list = new ArrayList<>();
             for (int i = 0; i < 4; i++) {
                 Map<String, Object> map = new HashMap<>();

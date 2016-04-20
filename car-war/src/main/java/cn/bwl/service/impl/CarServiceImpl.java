@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Map;
 
-@Service("TestServiceImpl")
+@Service("CarServiceImpl")
 public class CarServiceImpl implements ICarServcie {
     @Autowired
     private ICarDAO carDAO;
