@@ -16,5 +16,73 @@
     <select id="servicesQueryList"  resultType="java.util.Map">
         SELECT * FROM car_services
     </select>
+
+    <select id="newQueryPage" resultType="java.util.Map">
+        SELECT
+        *
+        FROM
+        car_news
+        <if test="orderBy!=null">
+            ORDER BY ${orderBy} ${sortBy}
+        </if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>
+    </select>
+    <select id="newQueryCount" resultType="java.lang.Integer">
+        SELECT
+        count(id)
+        FROM
+        car_news
+    </select>
+    <select id="newQueryById" resultType="java.util.Map">
+        SELECT
+        *
+        FROM
+        car_news
+        WHERE
+        id = #{id}
+    </select>
+
+    <select id="carQueryPage" resultType="java.util.Map">
+        SELECT
+        *
+        FROM
+        car_car
+        <if test="orderBy!=null">
+            ORDER BY ${orderBy} ${sortBy}
+        </if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>
+    </select>
+    <select id="carQueryCount" resultType="java.lang.Integer">
+        SELECT
+        count(id)
+        FROM
+        car_car
+    </select>
+    <select id="carQueryById" resultType="java.util.Map">
+        SELECT
+        *
+        FROM
+        car_car
+        WHERE
+        id = #{id}
+    </select>
+
+    <insert id="addBuy" parameterType="java.util.Map">
+        INSERT INTO car_buy (
+        name,
+        phone,
+        message,
+        carId
+        ) VALUES (
+        #{name},
+        #{phone},
+        #{message},
+        #{carId}
+        )
+    </insert>
 </mapper>
 

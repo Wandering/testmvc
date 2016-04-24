@@ -1,0 +1,11 @@
+<div class="widget-container widget_recent_entries"  ng-controller="newsController">
+
+    <h3 class="widget-title">热门新闻</h3>
+
+    <ul ng-repeat="new in news">
+        <li><a href="blog-single.html?id={{new.id}}">{{new.title}}</a></li>
+    </ul>
+
+    <a href="alternative-blog.html" class="see">查看更多新闻</a>
+
+</div><!--/ .widget-container-->

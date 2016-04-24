@@ -35,4 +35,37 @@ public class CarServiceImpl implements ICarServcie {
     public List<Map<String, Object>> servicesQueryList() {
         return carDAO.servicesQueryList();
     }
+
+    @Override
+    public List<Map<String, Object>> newQueryPage(String orderBy, String sortBy, String offset, String rows) {
+        return carDAO.newQueryPage(orderBy,sortBy,offset,rows);
+    }
+    @Override
+    public Integer newQueryCount() {
+        return carDAO.newQueryCount();
+    }
+
+    @Override
+    public Map<String, Object> newQueryById(Object id) {
+        return carDAO.newQueryById(id);
+    }
+
+    @Override
+    public List<Map<String, Object>> carQueryPage(String orderBy, String sortBy, String offset, String rows) {
+        return carDAO.carQueryPage(orderBy, sortBy, offset, rows);
+    }
+    @Override
+    public Integer carQueryCount() {
+        return carDAO.carQueryCount();
+    }
+
+    @Override
+    public Map<String, Object> carQueryById(Object id) {
+        return carDAO.carQueryById(id);
+    }
+
+    @Override
+    public boolean addBuy(Map<String, Object> map) {
+        return carDAO.addBuy(map);
+    }
 }

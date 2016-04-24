@@ -17,4 +17,11 @@ public interface ICarServcie {
     List<Map<String,Object>> newsQueryList();
     List<Map<String,Object>> photosQueryList();
     List<Map<String,Object>> servicesQueryList();
+    List<Map<String,Object>> newQueryPage(String orderBy,String sortBy,String offset,String rows);
+    Integer newQueryCount();
+    Map<String,Object> newQueryById(Object id);
+    List<Map<String,Object>> carQueryPage(String orderBy,String sortBy,String offset,String rows);
+    Integer carQueryCount();
+    Map<String,Object> carQueryById(Object id);
+    boolean addBuy(Map<String,Object> map);
 }

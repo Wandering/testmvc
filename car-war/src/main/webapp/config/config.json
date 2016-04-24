@@ -1,7 +1,7 @@
 {
   "carsbanner":"/car/carQueryPage",
-  "services":"/index/services",
-  "news":"/index/news",
-  "newinfo":"/info/newinfo?id=",
-  "photos":"/info/photos"
+  "carinfo":"/car/carQueryOne",
+  "news":"/car/newQueryPage",
+  "newinfo":"/car/newQueryOne",
+  "newtitle":"/car/newtitle"
 }

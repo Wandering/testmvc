@@ -1,43 +1,133 @@
 /**
  * Created by admin on 2016/4/6.
  */
-(function ($) {
-    $.getUrlParam = function (name) {
+var getUrlParam = function (name) {
         var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return unescape(r[2]); return null;
-    }
-})(jQuery);
+}
 
 
 var app = angular.module('lyyApp', []);
-app.controller('IndexController', ['$scope', function($scope) {
+app.controller('IndexController', ['$scope',function($scope) {
 }]);
-app.controller('bannersController', ['$scope', function($scope) {
-    ajaxFun(getUrlList().carsbanner, "GET", {},false, function(res){
-        $scope.carsbanner=res.list;
-        console.log(res)
-    });
-
+app.controller('bannersController', ['$scope',function($scope) {
+    getCarsFun($scope,1,6);
 }]);
 
-//app.controller('newInfoController', ['$scope', function($scope) {
-//    var id = $.getUrlParam("id");
-//    if(!id){
-//        id=0;
-//    }
-//    ajaxFun(getUrlList().newinfo+id, "GET", {},false, function(res){
-//        $scope.info=res;
-//        console.log(res)
-//    });
-//}]);
+app.controller('carsController', ['$scope', function($scope) {
+
+    $scope.querypage = function(page,query){
+        getCarsFun($scope,page,6,query);
+    }
+    $scope.querypage(1);
+    $scope.querypageclick=function(event){
+        var currentElement = event.target;
+
+        $scope.querypage( currentElement.innerHTML);
+    }
+}]);
 app.controller('newsController', ['$scope', function($scope) {
-    ajaxFun(getUrlList().carsbanner, "GET", {},false, function(res){
-        $scope.carsbanner=res.list;
-        console.log(res)
+    $scope.querypage = function(page){
+        geNewsFun($scope,page,6);
+    }
+    $scope.querypage(1);
+    $scope.querypageclick=function(event){
+        var currentElement = event.target;
+
+        $scope.querypage( currentElement.innerHTML);
+    }
+}]);
+var geNewsFun=function($scope,page,rows){
+    ajaxFun(getUrlList().news+"?"+"page="+page+"&rows="+rows, "GET", {},false, function(res){
+        $scope.news=res.list;
+        console.log($scope.news)
+        console.log("tt")
+        setPageNum($scope,res);
     });
 
-}]);
+}
+var getCarsFun=function($scope,page,rows,query){
+    if(!query){
+        query="";
+    }
+    ajaxFun(getUrlList().carsbanner+"?"+"page="+page+"&rows="+rows+query, "GET", {},false, function(res){
+        $scope.carsbanner=res.list;
+        setPageNum($scope,res);
+    });
+}
+var setPageNum = function($scope,res){
+    var nums=[];
+    var pageInfo={
+        currPage:res.currPage,
+        pages:res.pages,
+        count:res.count
+    };
+    $scope.pageInfo=pageInfo;
+    for(var i=1;i<=res.pages;i++){
+        var pagenum={
+            num:i
+        };
+        if(res.currPage===i){
+            pagenum.class="current"
+        }else{
+            pagenum.class="page"
+        }
+
+        pagenum.num=i;
+        nums.push(pagenum);
+    }
+    $scope.pagenum=nums;
+    console.log( $scope.pagenum);
+}
+app.controller('carInfoController', ['$scope', function($scope) {
+    var id = getUrlParam("id");
+    if(!id){
+        id=0;
+    }
+    ajaxFun(getUrlList().carinfo+"?id="+id, "GET", {},false, function(res){
+        $scope.carinfo=res;
+        console.log(res)
+    });
+}]).filter(
+    'to_trusted', ['$sce', function ($sce) {
+        return function (text) {
+            return $sce.trustAsHtml(text);
+        }
+    }]
+)  ;
+app.controller('newInfoController', ['$scope', function($scope) {
+    var id = getUrlParam("id");
+    if(!id){
+        id=0;
+    }
+    ajaxFun(getUrlList().newinfo+"?id="+id, "GET", {},false, function(res){
+        $scope.newinfo=res;
+        console.log(res)
+    });
+}]).filter(
+    'to_trusted', ['$sce', function ($sce) {
+        return function (text) {
+            return $sce.trustAsHtml(text);
+        }
+    }]
+)  ;
+
+var addBuy=function(){
+    $("#carId").val();
+    $("#name").val();
+    $("#phone").val();
+    $("#comments").val();
+    var data={
+        carId:$("#carId").val(),
+        name:$("#name").val(),
+        phone:$("#phone").val(),
+        comments:$("#comments").val(),
+    }
+        ajaxFun("/input/addBuy", "POST", data,true, function(res){
+
+        });
+}
 
 
 
