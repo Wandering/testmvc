@@ -1,0 +1,8 @@
+{
+  "carsbanner":"/car/carQueryPage",
+  "carinfo":"/car/carQueryOne",
+  "news":"/car/newQueryPage",
+  "newinfo":"/car/newQueryOne",
+  "newtitle":"/car/newtitle",
+  "buyQueryPage":"/car/buyQueryPage"
+}

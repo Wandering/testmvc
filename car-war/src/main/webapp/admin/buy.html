@@ -10,9 +10,9 @@
 		
 		<!-- Mobile Metas -->
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		
+
 		<!-- Import google fonts -->
-        <link href="http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css" />
+		<link href="assets/css/fonts.css" rel="stylesheet" type="text/css" />
         
 		<!-- Favicon and touch icons -->
 		<link rel="shortcut icon" href="assets/ico/favicon.ico" type="image/x-icon" />
@@ -52,7 +52,9 @@
 		
 		<!-- Head Libs -->
 		<script src="assets/plugins/modernizr/js/modernizr.js"></script>
-		
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/angular.min.js"></script>
+		<script type="text/javascript" src="../js/project/common.js"></script>
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--[if lt IE 9]>
@@ -62,7 +64,7 @@
 		
 	</head>
 	
-	<body>
+	<body   ng-app="lyyApp"  ng-controller="IndexController">
 	
 		<!-- Start: Header -->
 		<div class="navbar" role="navigation">
@@ -166,24 +168,22 @@
 							<div class="panel">
 								<div class="panel-body">
 									<div class="table-responsive">
-										<table class="table table-striped table-bordered bootstrap-datatable datatable">
+										<table class="table table-striped table-bordered bootstrap-datatable datatable"  ng-controller="buysController">
 											<thead>
 											<tr>
-												<th>Employe</th>
-												<th>Position</th>
-												<th>Salary</th>
-												<th>Status</th>
-												<th>Actions</th>
+												<th>姓名</th>
+												<th>手机号码</th>
+												<th>消息</th>
+												<th>选中车编号</th>
+												<th>操作</th>
 											</tr>
 											</thead>
 											<tbody>
-											<tr>
-												<td>Willson</td>
-												<td>Developer</td>
-												<td>2563$</td>
-												<td>
-													<span class="label label-warning">Pending</span>
-												</td>
+											<tr   ng-repeat="buy in buys">
+												<td>{{buy.name}}</td>
+												<td>{{buy.phone}}</td>
+												<td>{{buy.message}}</td>
+												<td>{{buy.carId}}</td>
 												<td>
 													<a class="btn btn-success" href="table.html#">
 														<i class="fa fa-search-plus "></i>
@@ -194,63 +194,6 @@
 													<a class="btn btn-danger" href="table.html#">
 														<i class="fa fa-trash-o "></i>
 
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>James</td>
-												<td>SEO</td>
-												<td>5000$</td>
-												<td>
-													<span class="label label-warning">Pending</span>
-												</td>
-												<td>
-													<a class="btn btn-success" href="table.html#">
-														<i class="fa fa-search-plus "></i>
-													</a>
-													<a class="btn btn-info" href="table.html#">
-														<i class="fa fa-edit "></i>
-													</a>
-													<a class="btn btn-danger" href="table.html#">
-														<i class="fa fa-trash-o "></i>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Steven</td>
-												<td>Photographer</td>
-												<td>1269$</td>
-												<td>
-													<span class="label label-warning">Pending</span>
-												</td>
-												<td>
-													<a class="btn btn-success" href="table.html#">
-														<i class="fa fa-search-plus "></i>
-													</a>
-													<a class="btn btn-info" href="table.html#">
-														<i class="fa fa-edit "></i>
-													</a>
-													<a class="btn btn-danger" href="table.html#">
-														<i class="fa fa-trash-o "></i>
-													</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Aselay</td>
-												<td>Project manger</td>
-												<td>6253$</td>
-												<td>
-													<span class="label label-warning">Pending</span>
-												</td>
-												<td>
-													<a class="btn btn-success" href="table.html#">
-														<i class="fa fa-search-plus "></i>
-													</a>
-													<a class="btn btn-info" href="table.html#">
-														<i class="fa fa-edit "></i>
-													</a>
-													<a class="btn btn-danger" href="table.html#">
-														<i class="fa fa-trash-o "></i>
 													</a>
 												</td>
 											</tr>
@@ -324,15 +267,27 @@
 		<script src="assets/plugins/morris/js/morris.min.js"></script>
 		<script src="assets/plugins/gauge/js/gauge.min.js"></script>		
 		<script src="assets/plugins/d3/js/d3.min.js"></script>		
-		<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
-		
+
 		<!-- Theme JS -->		
 		<script src="assets/js/jquery.mmenu.min.js"></script>
 		<script src="assets/js/core.min.js"></script>
 		
 		<!-- Pages JS -->
 		<script src="assets/js/pages/index.js"></script>
-		
+		<script>
+			var getCookie=function getCookie(name)
+			{
+				var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+				if(arr=document.cookie.match(reg))
+					return unescape(arr[2]);
+				else
+					return null;
+			}
+			if(!getCookie('username')){
+				alert("请先登录！");
+				location.href="page-login.html";
+			}
+		</script>
 		<!-- end: JavaScript-->
 		
 	</body>

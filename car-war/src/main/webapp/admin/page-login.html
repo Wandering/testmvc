@@ -10,10 +10,10 @@
 		
 		<!-- Mobile Metas -->
 	    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-		
+
 		<!-- Import google fonts -->
-        <link href="http://fonts.useso.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet" type="text/css" />
-        
+		<link href="assets/css/fonts.css" rel="stylesheet" type="text/css" />
+
 		<!-- Favicon and touch icons -->
 		<link rel="shortcut icon" href="assets/ico/favicon.ico" type="image/x-icon" />
 		<link rel="apple-touch-icon" href="assets/ico/apple-touch-icon.png" />
@@ -31,7 +31,7 @@
 		<link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 		<link href="assets/vendor/skycons/css/skycons.css" rel="stylesheet" />
 		<link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-		
+		<script src="assets/vendor/js/jquery-2.1.1.min.js"></script>
 		<!-- Plugins CSS-->		
 		
 		<!-- Theme CSS -->
@@ -78,11 +78,10 @@
 								<h2 class="title"><i class="fa fa-user"></i> 登录</h2>
 							</div>
 							<div class="panel-body">
-								<form action="index.html" method="post">
 									<div class="form-group">
 										<label>用户名</label>
 										<div class="input-group input-group-icon">
-											<input name="username" type="text" class="form-control bk-noradius" />
+											<input id="username" name="username" type="text" class="form-control bk-noradius" />
 											<span class="input-group-addon">
 												<span class="icon">
 													<i class="fa fa-user"></i>
@@ -94,7 +93,7 @@
 									<div class="form-group">
 										<label>密码</label>
 										<div class="input-group input-group-icon">
-											<input name="pwd" type="password" class="form-control bk-noradius" />
+											<input id="pwd" name="pwd" type="password" class="form-control bk-noradius" />
 											<span class="input-group-addon">
 												<span class="icon">
 													<i class="fa fa-lock"></i>
@@ -110,17 +109,36 @@
 											</div>
 										</div>
 										<div class="col-sm-4 text-right">
-											<button href="index.html" type="submit" class="btn btn-primary hidden-xs">登录</button>
+											<span id="tishi"></span>
+											<button href="index.html" id="mylogin" type="submit" class="btn btn-primary hidden-xs">登录</button>
 										</div>
 									</div>
 									<br />
-								</form>
 							</div>
 						</div>
 					</div>
 				</div>
 				<!-- End Main Page -->
-		
+				<script>
+					$("#mylogin").click(function(){
+						var username=$("#username").val();
+						var pwd=$("#pwd").val();
+						$.ajax({
+							type: "GET",
+							url: "/car/login",
+							data: {username:$("#username").val(), pwd:$("#pwd").val()},
+							dataType: "json",
+							success: function(res){
+								if(res){
+									$("#tishi").html("登录成功,跳转中...")
+									window.location.href="index.html";
+								}else{
+									$("#tishi").html("登录失败！")
+								}
+							}
+						});
+					})
+				</script>
 
 			</div>
 		</div><!--/container-->

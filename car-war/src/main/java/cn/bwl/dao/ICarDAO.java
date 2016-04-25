@@ -19,5 +19,9 @@ public interface ICarDAO {
     List<Map<String,Object>> carQueryPage(@Param("orderBy")String orderBy,@Param("sortBy")String sortBy,@Param("offset")String offset,@Param("rows")String rows);
     Integer carQueryCount();
     Map<String,Object> carQueryById(Object id);
+    List<Map<String,Object>> buyQueryPage(@Param("orderBy")String orderBy,@Param("sortBy")String sortBy,@Param("offset")String offset,@Param("rows")String rows);
+    Integer buyQueryCount();
+    Map<String,Object> buyQueryById(Object id);
     boolean addBuy(Map<String,Object> map);
+    boolean login(Map<String,Object> map);
 }

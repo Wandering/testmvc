@@ -38,6 +38,26 @@ app.controller('newsController', ['$scope', function($scope) {
         $scope.querypage( currentElement.innerHTML);
     }
 }]);
+app.controller('buysController', ['$scope', function($scope) {
+    $scope.querypage = function(page){
+        getBuyFun($scope,page,6);
+    }
+    $scope.querypage(1);
+    $scope.querypageclick=function(event){
+        var currentElement = event.target;
+
+        $scope.querypage( currentElement.innerHTML);
+    }
+}]);
+var getBuyFun=function($scope,page,rows,query){
+    if(!query){
+        query="";
+    }
+    ajaxFun(getUrlList().buyQueryPage+"?"+"page="+page+"&rows="+rows+query, "GET", {},false, function(res){
+        $scope.buys=res.list;
+        setPageNum($scope,res);
+    });
+}
 var geNewsFun=function($scope,page,rows){
     ajaxFun(getUrlList().news+"?"+"page="+page+"&rows="+rows, "GET", {},false, function(res){
         $scope.news=res.list;

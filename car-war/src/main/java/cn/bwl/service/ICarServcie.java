@@ -23,5 +23,9 @@ public interface ICarServcie {
     List<Map<String,Object>> carQueryPage(String orderBy,String sortBy,String offset,String rows);
     Integer carQueryCount();
     Map<String,Object> carQueryById(Object id);
+    List<Map<String,Object>> buyQueryPage(String orderBy,String sortBy,String offset,String rows);
+    Integer buyQueryCount();
+    Map<String,Object> buyQueryById(Object id);
     boolean addBuy(Map<String,Object> map);
+    boolean login(Map<String,Object> map);
 }

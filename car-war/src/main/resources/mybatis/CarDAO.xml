@@ -71,6 +71,42 @@
         id = #{id}
     </select>
 
+    <select id="buyQueryPage" resultType="java.util.Map">
+        SELECT
+        *
+        FROM
+        car_buy
+        <if test="orderBy!=null">
+            ORDER BY ${orderBy} ${sortBy}
+        </if>
+        <if test="offset != null">
+            limit ${offset}, ${rows}
+        </if>
+    </select>
+    <select id="buyQueryCount" resultType="java.lang.Integer">
+        SELECT
+        count(id)
+        FROM
+        car_buy
+    </select>
+    <select id="buyQueryById" resultType="java.util.Map">
+        SELECT
+        *
+        FROM
+        car_buy
+        WHERE
+        id = #{id}
+    </select>
+    <select id="login" resultType="java.lang.Boolean">
+        SELECT
+        count(1)
+        FROM
+        car_login
+        WHERE
+        name = #{username}
+        AND
+        password = #{pwd}
+    </select>
     <insert id="addBuy" parameterType="java.util.Map">
         INSERT INTO car_buy (
         name,
