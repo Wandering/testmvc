@@ -10,6 +10,7 @@ package cn.bwl.controller;
 import cn.bwl.domain.TestDomain;
 import cn.bwl.service.ICarServcie;
 import cn.bwl.service.ITestServcie;
+import com.alibaba.fastjson.JSON;
 import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
@@ -37,8 +38,21 @@ public class CarController {
      */
     @RequestMapping(value="/carQueryPage")
     @ResponseBody
-    public Object carQueryPage(@RequestParam Integer page,@RequestParam Integer rows){
-        List list=carServcie.carQueryPage("id", "desc", (page-1)*rows+"",rows+"");
+    public Object carQueryPage(@RequestParam Integer page,@RequestParam Integer rows,String query){
+        Map<String,Object> queryparam=(Map<String,Object>)JSON.parse(query);
+        if (queryparam != null) {
+           if("".equals(queryparam.get("queryname"))){
+               queryparam.remove("queryname");
+           }
+            if("".equals(queryparam.get("maxprice"))){
+                queryparam.remove("maxprice");
+            }
+            if("".equals(queryparam.get("minprice"))){
+                queryparam.remove("minprice");
+            }
+        }
+
+        List list=carServcie.carQueryPage("id", "desc", (page-1)*rows+"",rows+"",queryparam);
         Integer count=carServcie.carQueryCount();
         Integer pages=1;
         try{
@@ -51,21 +65,6 @@ public class CarController {
         map.put("currPage",page);
         map.put("pages",pages);
         map.put("count", count);
-
-//        Map<String,Object> map = new HashMap<>();
-//        List list = new ArrayList();
-//        for(int i=0;i<6;i++){
-//            Map<String,Object> map1 = new HashMap<>();
-//            map1.put("id",i);
-//            map1.put("name","牛车1"+page);
-//            map1.put("price","100000"+"元");
-//            map1.put("img","images/sliders/slide-"+(i+1)+".jpg");
-//            list.add(map1);
-//        }
-//        map.put("list",list);
-//        map.put("currPage",page);
-//        map.put("pages",3);
-//        map.put("count",18);
         return map;
     }
 

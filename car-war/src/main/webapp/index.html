@@ -109,7 +109,7 @@
 
 			<h3 class="widget-title">汽车搜索</h3>
 
-			<form action="/" id="boxpanel" class="form-panel" />
+			<div id="boxpanel" class="form-panel" />
 
 				<fieldset>
 					<label  for="name">汽车名称:</label>
@@ -128,7 +128,7 @@
 				<div class="clear"></div>
 				<button id="submitSearch" class="submit-search" type="submit">搜索</button>
 
-			</form><!--/ .form-panel-->
+			</div><!--/ .form-panel-->
 
 		</div><!--/ .main-search-panel-->
 		
@@ -164,7 +164,7 @@
 							</a>
 
 							<div class="detailed">
-								<span class="cost">8.966元</span>
+								<span class="cost">{{car.price}}元</span>
 							</div><!--/ .detailed-->
 
 							<a href="one-products.html?id={{car.id}}" class="button orange">详情</a>
@@ -219,6 +219,15 @@
 
 <script src="js/jquery.gmap.min.js"></script>
 <script src="js/custom.js"></script>
-
+<script>
+	$("#submitSearch").click(function(){
+		var queryparam={
+			"queryname":$("#name").val(),
+			"minprice":$("#minprice").val(),
+			"maxprice":$("#maxprice").val()
+		}
+		window.location.href="all-listings.html?queryparam="+JSON.stringify(queryparam);
+	})
+</script>
 </body>
 </html>

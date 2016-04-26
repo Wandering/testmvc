@@ -49,6 +49,19 @@
         *
         FROM
         car_car
+        <where>
+            <if test="mymap!=null">
+            <if test="mymap.queryname!=null">
+               and  name like CONCAT("%",#{mymap.queryname},"%")
+            </if>
+            <if test="mymap.minprice!=null">
+                and  price  &lt;= #{mymap.minprice}
+            </if>
+            <if test="mymap.maxprice!=null">
+                and  price &gt;= #{mymap.maxprice}
+            </if>
+            </if>
+        </where>
         <if test="orderBy!=null">
             ORDER BY ${orderBy} ${sortBy}
         </if>

@@ -51,8 +51,8 @@ public class CarServiceImpl implements ICarServcie {
     }
 
     @Override
-    public List<Map<String, Object>> carQueryPage(String orderBy, String sortBy, String offset, String rows) {
-        return carDAO.carQueryPage(orderBy, sortBy, offset, rows);
+    public List<Map<String, Object>> carQueryPage(String orderBy, String sortBy, String offset, String rows, Map<String,Object> queryparam) {
+        return carDAO.carQueryPage(orderBy, sortBy, offset, rows ,queryparam);
     }
     @Override
     public Integer carQueryCount() {

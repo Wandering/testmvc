@@ -20,7 +20,7 @@ public interface ICarServcie {
     List<Map<String,Object>> newQueryPage(String orderBy,String sortBy,String offset,String rows);
     Integer newQueryCount();
     Map<String,Object> newQueryById(Object id);
-    List<Map<String,Object>> carQueryPage(String orderBy,String sortBy,String offset,String rows);
+    List<Map<String,Object>> carQueryPage(String orderBy,String sortBy,String offset,String rows, Map<String,Object> queryparam);
     Integer carQueryCount();
     Map<String,Object> carQueryById(Object id);
     List<Map<String,Object>> buyQueryPage(String orderBy,String sortBy,String offset,String rows);

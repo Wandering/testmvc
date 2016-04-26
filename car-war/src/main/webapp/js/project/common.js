@@ -2,9 +2,9 @@
  * Created by admin on 2016/4/6.
  */
 var getUrlParam = function (name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]); return null;
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]); return null;
 }
 
 
@@ -14,17 +14,18 @@ app.controller('IndexController', ['$scope',function($scope) {
 app.controller('bannersController', ['$scope',function($scope) {
     getCarsFun($scope,1,6);
 }]);
-
+var carquery=function($scope){
+    $scope.carQueryParam=getUrlParam("queryparam");
+}
 app.controller('carsController', ['$scope', function($scope) {
-
+    carquery($scope);
     $scope.querypage = function(page,query){
-        getCarsFun($scope,page,6,query);
+        getCarsFun($scope,page,6);
     }
-    $scope.querypage(1);
+    $scope.querypage(1,$scope.carQueryParam);
     $scope.querypageclick=function(event){
         var currentElement = event.target;
-
-        $scope.querypage( currentElement.innerHTML);
+        $scope.querypage( currentElement.innerHTML,$scope.carQueryParam);
     }
 }]);
 app.controller('newsController', ['$scope', function($scope) {
@@ -34,7 +35,6 @@ app.controller('newsController', ['$scope', function($scope) {
     $scope.querypage(1);
     $scope.querypageclick=function(event){
         var currentElement = event.target;
-
         $scope.querypage( currentElement.innerHTML);
     }
 }]);
@@ -53,7 +53,7 @@ var getBuyFun=function($scope,page,rows,query){
     if(!query){
         query="";
     }
-    ajaxFun(getUrlList().buyQueryPage+"?"+"page="+page+"&rows="+rows+query, "GET", {},false, function(res){
+    ajaxFun(getUrlList().buyQueryPage+"?"+"page="+page+"&rows="+rows+"&query="+query, "GET", {},false, function(res){
         $scope.buys=res.list;
         setPageNum($scope,res);
     });
@@ -71,10 +71,12 @@ var getCarsFun=function($scope,page,rows,query){
     if(!query){
         query="";
     }
-    ajaxFun(getUrlList().carsbanner+"?"+"page="+page+"&rows="+rows+query, "GET", {},false, function(res){
+    ajaxFun(getUrlList().carsbanner+"?"+"page="+page+"&rows="+rows+"&query="+$scope.carQueryParam, "GET", {},false, function(res){
         $scope.carsbanner=res.list;
         setPageNum($scope,res);
+        $scope.carQueryParam="";
     });
+
 }
 var setPageNum = function($scope,res){
     var nums=[];
