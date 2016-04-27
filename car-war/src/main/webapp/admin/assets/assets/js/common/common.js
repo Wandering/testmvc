@@ -6,32 +6,7 @@ var CommonFn = {
      * @returns {string}
      */
     url: {
-        getProvince: '/admin/gaokao360/ex/getProvince',  // 获取省份
-        getContentUrl: '/admin/gaokao360/ex/getContentUrl', // 保存textarea富媒体HTML
-        getContentHtml: '/admin/gaokao360/ex/getHTMLContent', // 修改获取textarea富媒体内容
-        getRowData: '/admin/gaokao360/ex/' + mainObj + 'queryone', // 获取行数据
-        deleteData: '/admin/gaokao360/ex/commonsave/', // 删除数据
-        getYear: '/admin/gaokao360/ex/' + mainObj + '/getYears', // 获取年份
-        getSubjectUrl: '/admin/gaokao360/ex/getSubject', // 获取学科
-        getEduLevel: '/admin/gaokao360/ex/getAdmissionBatch', // 获取政策一级分类
-        getMajored:'/admin/gaokao360/ex/getMajoredCategoryList',//获取学科分类
-        saveData: '/admin/gaokao360/ex/commonsave/' + mainObj,
-        flashSwfUrl: '/assets/js/webuploader-0.1.5/Uploader.swf', // 上传选择按钮渲染
-        uploaderUrl: 'http://cs-dev.thinkjoy.com.cn/rest/v1/uploadFile?userId=gk360&dirId=0&productCode=gk360&bizSystem=gk360&spaceName=gk360',
-        eduLevel: '/admin/gaokao360/ex/eduLevel',
-        AllSchoolUrl: '/admin/gaokao360/ex/getUniversityByName',
-        getBatchUrl: '/admin/gaokao360/geBatch',
-        professionCategoryUrl: '/admin/zgk/getProfessionCategory',
-        dictListUrl: '/admin/gaokao360/ex/getDataDictList?type=UNIVERSITY_MAJOR_TYPE', // 科类
-        majoredUrl: '/admin/gaokao360/ex/getMajoredNameList', // 所有专业
-        getNature: '/admin/gaokao360/ex/getDataDictList?type=ADMISSION_BATCH_TYPE', // 招生性质
-        getUniversityNameList: '/admin/gaokao360/ex/getUniversityNameList', // 开设院校
-        getMajoredTypeUrl: '/admin/gaokao360/ex/getDataDictList?type=MAJOR_TYPE', // 专业类型
-        getEdulevelUrl: '/admin/gaokao360/ex/getDataDictList?type=EDULEVEL', // 学历层次
-        getDegreeUrl: '/admin/gaokao360/ex/getDataDictList?type=GAIN_DEGREE', // 学位
-        getuniversityTypeUrl: '/admin/gaokao360/ex/getDataDictList?type=UNIVERSITY_TYPE', // 院校类型
-        getSchoolIngUrl: '/admin/gaokao360/ex/getDataDictList?type=LENGTH_OF_SCHOOLING', // 学制
-        getModuleUrl: '/admin/gaokao360/ex/queryVideoType' // 视频模块
+        getProvince: '/admin/gaokao360/ex/getProvince'  // 获取省份
     },
     getData: function (url, type, data, callback) {
         $.ajax({

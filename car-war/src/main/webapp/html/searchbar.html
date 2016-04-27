@@ -30,6 +30,7 @@
             "minprice":$("#minprice").val(),
             "maxprice":$("#maxprice").val()
         }
-        window.location.href="all-listings.html?queryparam="+JSON.stringify(queryparam);
+        var queryurl="all-listings.html?queryparam="+JSON.stringify(queryparam);
+        window.location.assign(encodeURI(queryurl));
     })
 </script>

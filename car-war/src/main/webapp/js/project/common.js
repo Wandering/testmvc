@@ -4,7 +4,7 @@
 var getUrlParam = function (name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
     var r = window.location.search.substr(1).match(reg);
-    if (r != null) return unescape(r[2]); return null;
+    if (r != null) return decodeURI(r[2]); return null;
 }
 
 
@@ -15,7 +15,7 @@ app.controller('bannersController', ['$scope',function($scope) {
     getCarsFun($scope,1,6);
 }]);
 var carquery=function($scope){
-    $scope.carQueryParam=getUrlParam("queryparam");
+    $scope.carQueryParam=decodeURI(getUrlParam("queryparam"));
 }
 app.controller('carsController', ['$scope', function($scope) {
     carquery($scope);

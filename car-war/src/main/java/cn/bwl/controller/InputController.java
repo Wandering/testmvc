@@ -32,7 +32,7 @@ public class InputController {
      */
     @RequestMapping(value="/addBuy")
     @ResponseBody
-    public Object carQueryPage(@RequestParam String carId,@RequestParam String name,@RequestParam String phone,@RequestParam String comments){
+    public Object addOrUpdateBuy(@RequestParam String carId,@RequestParam String name,@RequestParam String phone,@RequestParam String comments){
         try {
             Map<String,Object> map=new HashMap<>();
             map.put("carId",carId);
@@ -45,4 +45,22 @@ public class InputController {
         }
     }
 
+    /**
+     * 汽车主请求
+     * @return
+     */
+    @RequestMapping(value="/addOrUpdateNew")
+    @ResponseBody
+    public Object addOrUpdateNew(@RequestParam String carId,@RequestParam String name,@RequestParam String phone,@RequestParam String comments){
+        try {
+            Map<String,Object> map=new HashMap<>();
+            map.put("carId",carId);
+            map.put("name",name);
+            map.put("phone",phone);
+            map.put("message",comments);
+            return carServcie.addBuy(map);
+        }catch (Exception e){
+            return false;
+        }
+    }
 }
