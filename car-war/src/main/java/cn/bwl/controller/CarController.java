@@ -65,6 +65,8 @@ public class CarController {
         map.put("currPage",page);
         map.put("pages",pages);
         map.put("count", count);
+
+
         return map;
     }
 
