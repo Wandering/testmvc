@@ -27,6 +27,16 @@ app.controller('carsController', ['$scope', function($scope) {
         var currentElement = event.target;
         $scope.querypage( currentElement.innerHTML,$scope.carQueryParam);
     }
+    $scope.deleteCar=function(event) {
+        if (confirm('确实要删除该内容吗?')) {
+            console.log(event.target.getAttribute("myid"))
+            ajaxFun("/input/deleteCar?id=" + event.target.getAttribute("myid"), "GET", {}, false, function (res) {
+                if(res){
+                    $scope.querypage(1);
+                }
+            });
+        }
+    }
 }]);
 app.controller('newsController', ['$scope', function($scope) {
     $scope.querypage = function(page){
@@ -37,17 +47,27 @@ app.controller('newsController', ['$scope', function($scope) {
         var currentElement = event.target;
         $scope.querypage( currentElement.innerHTML);
     }
+    $scope.deleteNew=function(event) {
+        if (confirm('确实要删除该内容吗?')) {
+            ajaxFun("/input/deleteNew?id=" + event.target.getAttribute("myid"), "GET", {}, false, function (res) {
+                if(res){
+                    $scope.querypage(1);
+                }
+            });
+        }
+    }
 }]);
 app.controller('buysController', ['$scope', function($scope) {
     $scope.querypage = function(page){
         getBuyFun($scope,page,6);
-    }
+    };
     $scope.querypage(1);
     $scope.querypageclick=function(event){
         var currentElement = event.target;
 
         $scope.querypage( currentElement.innerHTML);
-    }
+    };
+
 }]);
 var getBuyFun=function($scope,page,rows,query){
     if(!query){
@@ -61,8 +81,6 @@ var getBuyFun=function($scope,page,rows,query){
 var geNewsFun=function($scope,page,rows){
     ajaxFun(getUrlList().news+"?"+"page="+page+"&rows="+rows, "GET", {},false, function(res){
         $scope.news=res.list;
-        console.log($scope.news)
-        console.log("tt")
         setPageNum($scope,res);
     });
 
@@ -91,9 +109,9 @@ var setPageNum = function($scope,res){
             num:i
         };
         if(res.currPage===i){
-            pagenum.class="current"
+            pagenum.class="current btn btn-primary"
         }else{
-            pagenum.class="page"
+            pagenum.class="page btn btn-default"
         }
 
         pagenum.num=i;
@@ -147,7 +165,15 @@ var addBuy=function(){
         comments:$("#comments").val(),
     }
         ajaxFun("/input/addBuy", "POST", data,true, function(res){
-
+            if(res){
+                alert("提交成功，我们的工作人员会尽快与您联系！")
+                $("#carId").val("");
+                $("#name").val("");
+                $("#phone").val("");
+                $("#comments").val("");
+            }else{
+                alert("提交失败，服务器未知异常！")
+            }
         });
 }
 

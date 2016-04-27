@@ -55,10 +55,10 @@
                and  name like CONCAT("%",#{mymap.queryname},"%")
             </if>
             <if test="mymap.minprice!=null">
-                and  price  &lt;= #{mymap.minprice}
+                and  price  &gt;= #{mymap.minprice}
             </if>
             <if test="mymap.maxprice!=null">
-                and  price &gt;= #{mymap.maxprice}
+                and  price &lt;= #{mymap.maxprice}
             </if>
             </if>
         </where>
@@ -133,5 +133,68 @@
         #{carId}
         )
     </insert>
+
+    <insert id="addNew" parameterType="java.util.Map">
+        INSERT INTO car_news (
+        title,
+        content,
+        subinfo,
+        date,
+        img
+        ) VALUES (
+        #{title},
+        #{content},
+        #{subinfo},
+        #{date},
+        #{img}
+        )
+    </insert>
+
+    <insert id="addCar" parameterType="java.util.Map">
+        INSERT INTO car_car (
+         name
+         ,price
+         ,img
+         ,content
+         ,RegNumbe
+         ,Mileage
+         ,BodyType
+         ,ModelYear
+         ,EngineSize
+         ,Trans
+         ,FuelType
+         ,Specifications
+         ,Safety
+         ,Convenience
+         ,Comfort
+         ,Entertainment
+         ) VALUES (
+            #{name}
+           ,#{price}
+           ,#{img}
+           ,#{content}
+           ,#{RegNumbe}
+           ,#{Mileage}
+           ,#{BodyType}
+           ,#{ModelYear}
+           ,#{EngineSize}
+           ,#{Trans}
+           ,#{FuelType}
+           ,#{Specifications}
+           ,#{Safety}
+           ,#{Convenience}
+           ,#{Comfort}
+           ,#{Entertainment}
+        )
+    </insert>
+    <delete id="deleteCar" parameterType="java.lang.Object">
+        DELETE FROM car_car WHERE id=#{id}
+    </delete>
+    <delete id="deleteNew" parameterType="java.lang.Object">
+        DELETE FROM car_news WHERE id=#{id}
+    </delete>
+    <delete id="deleteBuy" parameterType="java.lang.Object">
+        DELETE FROM car_buy WHERE id=#{id}
+    </delete>
 </mapper>
 

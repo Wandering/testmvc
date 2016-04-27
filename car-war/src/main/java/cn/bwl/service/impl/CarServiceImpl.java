@@ -85,4 +85,45 @@ public class CarServiceImpl implements ICarServcie {
     public boolean login(Map<String, Object> map) {
         return carDAO.login(map);
     }
+
+    @Override
+    public boolean addNew(Map<String, Object> map) {
+        return carDAO.addNew(map);
+    }
+
+    @Override
+    public boolean addCar(Map<String, Object> map) {
+        return carDAO.addCar(map);
+    }
+
+    @Override
+    public boolean updateBuy(Map<String, Object> map) {
+        return carDAO.updateBuy(map);
+
+    }
+
+    @Override
+    public boolean updateNew(Map<String, Object> map) {
+        return carDAO.updateNew(map);
+    }
+
+    @Override
+    public boolean updateCar(Map<String, Object> map) {
+        return carDAO.updateCar(map);
+    }
+
+    @Override
+    public boolean deleteBuy(Object id) {
+        return carDAO.deleteBuy(id);
+    }
+
+    @Override
+    public boolean deleteNew(Object id) {
+        return carDAO.deleteNew(id);
+    }
+
+    @Override
+    public boolean deleteCar(Object id) {
+        return carDAO.deleteCar(id);
+    }
 }

@@ -26,6 +26,17 @@ public interface ICarServcie {
     List<Map<String,Object>> buyQueryPage(String orderBy,String sortBy,String offset,String rows);
     Integer buyQueryCount();
     Map<String,Object> buyQueryById(Object id);
-    boolean addBuy(Map<String,Object> map);
     boolean login(Map<String,Object> map);
+
+    boolean addBuy(Map<String,Object> map);
+    boolean addNew(Map<String,Object> map);
+    boolean addCar(Map<String,Object> map);
+
+    boolean updateBuy(Map<String,Object> map);
+    boolean updateNew(Map<String,Object> map);
+    boolean updateCar(Map<String,Object> map);
+
+    boolean deleteBuy(Object id);
+    boolean deleteNew(Object id);
+    boolean deleteCar(Object id);
 }
