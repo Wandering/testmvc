@@ -4,17 +4,17 @@
 <mapper namespace="cn.bwl.dao.ICarDAO">
 
     <select id="bannerQueryList" resultType="java.util.Map">
-        SELECT * FROM car_banner
+        SELECT * FROM car_banner ORDER BY id DESC
     </select>
 
     <select id="newsQueryList" resultType="java.util.Map">
-        SELECT * FROM car_news
+        SELECT * FROM car_news ORDER BY id DESC
     </select>
     <select id="photosQueryList" resultType="java.util.Map">
-        SELECT * FROM car_photos
+        SELECT * FROM car_photos ORDER BY id DESC
     </select>
     <select id="servicesQueryList"  resultType="java.util.Map">
-        SELECT * FROM car_services
+        SELECT * FROM car_services ORDER BY id DESC
     </select>
 
     <select id="newQueryPage" resultType="java.util.Map">
@@ -22,9 +22,7 @@
         *
         FROM
         car_news
-        <if test="orderBy!=null">
-            ORDER BY ${orderBy} ${sortBy}
-        </if>
+            ORDER BY id DESC
         <if test="offset != null">
             limit ${offset}, ${rows}
         </if>
@@ -62,9 +60,7 @@
             </if>
             </if>
         </where>
-        <if test="orderBy!=null">
-            ORDER BY ${orderBy} ${sortBy}
-        </if>
+        ORDER BY id DESC
         <if test="offset != null">
             limit ${offset}, ${rows}
         </if>
@@ -89,9 +85,7 @@
         *
         FROM
         car_buy
-        <if test="orderBy!=null">
-            ORDER BY ${orderBy} ${sortBy}
-        </if>
+            ORDER BY id DESC
         <if test="offset != null">
             limit ${offset}, ${rows}
         </if>
