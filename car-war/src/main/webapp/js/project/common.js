@@ -75,6 +75,7 @@ var getBuyFun=function($scope,page,rows,query){
     }
     ajaxFun(getUrlList().buyQueryPage+"?"+"page="+page+"&rows="+rows+"&query="+query, "GET", {},false, function(res){
         $scope.buys=res.list;
+        console.log($scope.buys)
         setPageNum($scope,res);
     });
 }
