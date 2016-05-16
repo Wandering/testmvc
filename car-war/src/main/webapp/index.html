@@ -34,7 +34,7 @@
 	
 	<header id="header" class="clearfix">
 		
-		<a href="index.html" id="logo"><img src="images/logo.png" alt="汽车销售网" /></a>
+		<a href="index.html" id="logo"><H1>汽车销售系统</H1></a>
 		
 		<div class="widget-container widget_search">
 		</div><!--/ .widget-container-->
@@ -74,7 +74,7 @@
 
 							<dl class="auto-detailed clearfix">
 								<dt><span class="model">{{car.name}}</span></dt>
-								<dd><span class="heading">{{car.price}}</span></dd>
+								<dd><span class="heading">￥{{car.price}}万元</span></dd>
 							</dl><!--/ .auto-detailed-->
 
 							<a href="one-products.html?id={{car.id}}" class="button orange">详情 &raquo;</a>
@@ -150,7 +150,7 @@
 							</a>
 
 							<div class="detailed">
-								<span class="cost">{{car.price}}元</span>
+								<span class="cost">￥{{car.price}}万元</span>
 							</div><!--/ .detailed-->
 
 							<a href="one-products.html?id={{car.id}}" class="button orange">详情</a>
